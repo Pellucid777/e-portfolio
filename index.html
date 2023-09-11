@@ -1,87 +1,190 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Film Finder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400&family=Fredoka+One&family=Questrial&family=Staatliches&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="public/style2.css" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍿</text></svg>"
-    />
-    <script
-      defer
-      src="https://kit.fontawesome.com/e918d10e90.js"
-      crossorigin="anonymous"
-    ></script>
-    <script defer src="public/helpers.js"></script>
-    <script defer src="public/script.js"></script>
-    <script type="text/javascript" src="public/config.js"></script>
-    <!-- On mobile, keep elements in place when keyboard is open -->
-    <script>
-      const viewport = document.querySelector('meta[name=viewport]');
-      viewport.setAttribute(
-        'content',
-        viewport.content + ', height=' + window.innerHeight
-      );
-    </script>
-  </head>
-  <body>
-    <div class="overlay"></div>
-    <button type="button" id="starBtn">
-      <i class="fa-solid fa-star"></i>
-    </button>
-    <header>
-      <h1 id="appTitle">🍕🍿Film Finder🍿🍕</h1>
-      <form id="form">
-        <div class="form-group">
-          <label>Choose a genre:</label>
-          <select name="genres" id="genres" autofocus="true"></select>
-        </div>
-        <div class="form-group">
-          <label>Enter an actor's name <small>(optional):</small></label>
-          <input id="actors" type="text" placeholder="Enter an actor's name" />
-        </div>
-      </form>
-      <button type="submit" id="playBtn">Let's Play!</button>
-    </header>
+<head>
+<title>Kristi's e-portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ysabeau Office">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Ysabeau Office", sans-serif}
+.styling-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.styling-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+</head>
 
-    <div class="container">
-      <div id="results">
-        <div id="movieInfo">
-          <div id="moviePoster"></div>
-          <div id="movieText"></div>
-        </div>
-        <div id="likeOrDislikeBtns" hidden>
-          <button id="likeBtn"><i class="fa-solid fa-thumbs-up"></i></button>
-          <button id="dislikeBtn">
-            <i class="fa-solid fa-thumbs-down"></i>
-          </button>
-        </div>
-      </div>
+<body class="styling-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="styling-sidebar styling-bar-block styling-small styling-hide-small styling-center">
+
+  <!-- Avatar image in top left corner -->
+  <img src="Kristi.png" style="width:100%">
+  <a href="#" class="styling-bar-item styling-button styling-padding-large styling-hover-black">
+    <i class="fa fa-home styling-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="styling-bar-item styling-button styling-padding-large styling-hover-black">
+    <i class="fa fa-user styling-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+  <a href="#works" class="styling-bar-item styling-button styling-padding-large styling-hover-black">
+    <i class="fa fa-eye styling-xxlarge"></i>
+    <p>WORKS</p>
+  </a>
+  <a href="#contact" class="styling-bar-item styling-button styling-padding-large styling-hover-black">
+    <i class="fa fa-envelope styling-xxlarge"></i>
+    <p>CONTACT</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="styling-top styling-hide-large styling-hide-medium" id="myNavbar">
+  <div class="styling-bar styling-black styling-opacity styling-hover-opacity-off styling-center styling-small">
+
+    <a href="#" class="styling-bar-item styling-button" style="width:25% !important">HOME</a>
+    <a href="#about" class="styling-bar-item styling-button" style="width:25% !important">ABOUT</a>
+    <a href="#works" class="styling-bar-item styling-button" style="width:25% !important">WORKS</a>
+    <a href="#contact" class="styling-bar-item styling-button" style="width:25% !important">CONTACT</a>
+    
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="styling-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="styling-container styling-padding-32 styling-center styling-black" id="home">
+    <h1 class="styling-jumbo glow"><span class="styling-hide-small" >I'm</span> Kristi Rajandu</h1>
+    <p>Junior Web Designer.</p>
+    <img src="Kristi.png" alt="she" class="styling-image" width="496" height="554">
+  </header>
+
+  <!-- About Section -->
+  <div class="styling-content styling-justify styling-text-grey styling-padding-64" id="about">
+
+    <h2 class="styling-text-light-grey glow">About me</h2>
+    <hr style="width:200px" class="styling-opacity">
+    Hello there! I am <b>Kristi Rajandu</b> and I am glad you toke the time to check my e-portfolio.<p>
+      I began to learn programming in the year 2021 when I applied to <b>Tartu Vocational College.</b>
+      The first year went by splendidly <p>and I found my self more and more in my spare time 
+      to be learning new tips and languages to program with.<p> I was also an apprentice in <b>Art Media Agency</b> in 2022 spring. It was ever so pleasant as an experience!<p>
+        Sadly in the second year I was struck down with an illness and I had to withdraw my papers from the school.
+          But I could not stop<p> learning nore programming so I decided to continue this path trough a different direction. I invested in a full package in 
+          <a style="text-decoration: none" href="https://www.codecademy.com/"target="_new"><b>Codecademy</b></a>.<p>
+          There I obtained more understanding of JavaScript and Vue.Js. I will learn more for sure.<p>
+            Today I feel as a fish in the pond when using <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b> and <b>Vue.Js</b>. But I am also familiar with <b>PHP</b> and <b>mySQL</b>.<p>
+              I am well aware of the perplexity of IT field and how it continually evolves.
+              So to keep up with the pace I have planned<p> to continually study and, as a programmer, 
+                to keep myself up to date. At the moment I am searching for a company that would<p> give me the chance to become a team member and be of good use to them.
+
+
+
+    <h3 class="styling-padding-16 styling-text-light-grey glow">My Skills</h3>
+
+    <p class="styling-wide">HTML</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:80%"></div>
     </div>
-    <div class="sideBar" id="sideBar">
-      <button id="closeBtn">
-        <i class="fas fa-times"></i>
-      </button>
-      <button id="clear">Clear all</button>
-      <p><small>Click the title to view the movie on IMDB</small></p>
-      <div id="likedMovies">
-        <h4>Liked <i class="fa-solid fa-thumbs-up"></i></h4>
-        <ul id="likedMoviesList"></ul>
-      </div>
-      <div id="dislikedMovies">
-        <h4>Disliked <i class="fa-solid fa-thumbs-down"></i></h4>
-        <ul id="dislikedMoviesList"></ul>
-      </div>
+
+    <p class="styling-wide">CSS</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:70%"></div>
     </div>
-  </body>
+
+    <p class="styling-wide">Javascript</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:60%"></div>
+    </div>
+
+    <p class="styling-wide">Vue.Js</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:45%"></div>
+    </div>
+
+    <p class="styling-wide">PHP</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:40%"></div>
+    </div>
+
+    <p class="styling-wide">MySQL</p>
+    <div class="styling-white">
+      <div class="styling-dark-grey" style="height:28px;width:60%"></div>
+
+    </div><br>
+    
+    
+    
+    <!-- Testimonials -->
+    <h3 class="styling-padding-24 styling-text-light-grey glow">My Reputation</h3>  
+    
+
+    <p><span class="styling-large styling-margin-right"><b>Üllar Tamm</b></span> CEO at Art Media Agency </p>
+    <p>Kristi is very cheerful and accepted the tasks given to her. After being instructed, she did the tasks correctly as needed. Linguistically very good and precise.</p><br>
+
+    <p><span class="styling-large styling-margin-right"><b>Lauri Püüa</b></span> Senior web developer at Art Media Agency</p>
+    <p>Hardworking, hands on attitude, extremely positive. No problem was left unsolved, not afraid to ask for help if needed. Always ready to help others.</p>
+
+
+    
+  <!-- End About Section -->
+  </div>
+  
+  <!-- Portfolio Section -->
+  <div class="styling-padding-64 styling-content" id="works">
+    <h2 class="styling-text-light-grey glow">My Works</h2>
+    <hr style="width:200px" class="styling-opacity">
+
+    <!-- Grid for works -->
+    <div class="styling-row-padding" style="margin:0 -16px">
+      <div class="styling-half">
+        <p>Just a couple of projects to show my skills at the moment. </p>
+        <button onclick="myFunction()">Movie night helper</button>
+        <button>How old You really are</button>
+        
+      </div>
+
+    <!-- End works grid -->
+    </div>
+  <!-- End Portfolio Section -->
+  </div>
+
+  <!-- Contact Section -->
+  <div class="styling-padding-64 styling-content styling-text-grey" id="contact">
+    <h2 class="styling-text-light-grey glow">Contact Me</h2>
+    <p>Seriously, let's get in touch. Send me a message.</p>
+    <hr style="width:200px" class="styling-opacity">
+
+    <div class="styling-section">
+      <p><i class="fa fa-map-marker fa-fw styling-text-white styling-xxlarge styling-margin-right"></i> Elva, EST</p>
+      <p><i class="fa fa-phone fa-fw styling-text-white styling-xxlarge styling-margin-right"></i> Phone: +566 14 904</p>
+      <p><i class="fa fa-envelope fa-fw styling-text-white styling-xxlarge styling-margin-right"> </i> Email: kristi.rajandu89@gmail.com</p>
+    </div><br>
+    
+
+  <!-- End Contact Section -->
+  </div>
+  
+    <!-- Footer -->
+  <footer class="styling-content styling-padding-64 styling-text-grey styling-xlarge">
+    
+    <p class="styling-medium">Author: Kristi Rajandu </p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
+</body>
+
+<script>
+  function myFunction() {
+    window.open("movie.html");
+  }
+  </script>
 </html>
